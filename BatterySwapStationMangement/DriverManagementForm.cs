@@ -16,7 +16,6 @@ namespace BatterySwapStationMangement
             LoadDrivers();
         }
 
-        // ডাটাবেজ থেকে ডাটা লোড করার মেথড
         private void LoadDrivers(string searchQuery = "")
         {
             try
@@ -48,7 +47,6 @@ namespace BatterySwapStationMangement
             }
         }
 
-        // Add Logic
         private void ExecuteAdd()
         {
             if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtPhone.Text) || string.IsNullOrWhiteSpace(txtCardNumber.Text))
@@ -84,7 +82,6 @@ namespace BatterySwapStationMangement
             }
         }
 
-        // Update Logic
         private void ExecuteUpdate()
         {
             if (string.IsNullOrEmpty(selectedDriverId))
@@ -117,7 +114,6 @@ namespace BatterySwapStationMangement
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
 
-        // Delete Logic
         private void ExecuteDelete()
         {
             if (string.IsNullOrEmpty(selectedDriverId))
@@ -143,7 +139,6 @@ namespace BatterySwapStationMangement
             catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
 
-        // Table Click Logic
         private void dataGridViewDrivers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -158,7 +153,6 @@ namespace BatterySwapStationMangement
             }
         }
 
-        // Clear and Back
         private void ClearInputs()
         {
             txtName.Clear(); txtPhone.Clear(); txtCardNumber.Clear();
@@ -166,7 +160,6 @@ namespace BatterySwapStationMangement
             selectedDriverId = null;
         }
 
-        // Button Event Handlers (ডিজাইনার থেকে যুক্ত হওয়া সব ভ্যারিয়েন্ট)
         private void btnAdd_Click(object sender, EventArgs e) => ExecuteAdd();
         private void btnAdd_Click_1(object sender, EventArgs e) => ExecuteAdd();
         private void button1_Click(object sender, EventArgs e) => ExecuteAdd();
@@ -183,7 +176,6 @@ namespace BatterySwapStationMangement
         private void btnClear_Click_1(object sender, EventArgs e) => ClearInputs();
         private void btnBack_Click(object sender, EventArgs e) => this.Close();
 
-        // লাইভ সার্চ (Search বক্স টাইপ করার সাথে সাথেই ফিল্টার হবে)
         private void txtSearch_TextChanged(object sender, EventArgs e) => LoadDrivers(txtSearch.Text);
 
         private void label6_Click(object sender, EventArgs e) { }
