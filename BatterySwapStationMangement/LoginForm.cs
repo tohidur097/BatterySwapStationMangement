@@ -48,12 +48,12 @@ namespace BatterySwapStationMangement
         {
             if (chkShowPassword.Checked)
             {
-                // Show password as plain text
+              
                 txtPassword.PasswordChar = '\0';
             }
             else
             {
-                // Hide password with *
+                
                 txtPassword.PasswordChar = '*';
             }
         }
