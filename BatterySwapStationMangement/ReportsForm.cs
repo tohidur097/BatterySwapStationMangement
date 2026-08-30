@@ -23,19 +23,19 @@ namespace BatterySwapStationManagement
         {
             using (var conn = Database.GetConnection())
             {
-                // Total earnings today
+                
                 string query = "SELECT SUM(Amount) FROM Transactions WHERE CAST(Date AS DATE) = CAST(GETDATE() AS DATE)";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 object result = cmd.ExecuteScalar();
                 lblTodayEarnings.Text = "Today's Earnings: " + (result != DBNull.Value ? result.ToString() : "0");
 
-                // Total swaps today
+                
                 query = "SELECT COUNT(*) FROM Transactions WHERE CAST(Date AS DATE) = CAST(GETDATE() AS DATE)";
                 cmd = new SqlCommand(query, conn);
                 result = cmd.ExecuteScalar();
                 lblTodaySwaps.Text = "Today's Swaps: " + result.ToString();
 
-                // Chart data: battery usage by status
+               
                 query = "SELECT Status, COUNT(*) FROM Batteries GROUP BY Status";
                 cmd = new SqlCommand(query, conn);
                 SqlDataReader reader = cmd.ExecuteReader();
