@@ -16,7 +16,7 @@ namespace BatterySwapStationManagement
         public BillingForm()
         {
             InitializeComponent();
-            LoadTransactions(); // Load table when form opens
+            LoadTransactions(); 
         }
 
         private void LoadTransactions()
@@ -36,7 +36,7 @@ namespace BatterySwapStationManagement
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
 
-                    dataGridViewBilling.DataSource = dt; // Show results in table
+                    dataGridViewBilling.DataSource = dt; 
                 }
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ namespace BatterySwapStationManagement
 
         private void btnGenerateBill_Click(object sender, EventArgs e)
         {
-            // Validate inputs
+            
             if (!int.TryParse(txtUserId.Text, out int userId))
             {
                 MessageBox.Show("Invalid User ID.");
@@ -66,7 +66,7 @@ namespace BatterySwapStationManagement
 
             using (var conn = Database.GetConnection())
             {
-                // Ensure referenced user exists to avoid FK violation
+                
                 using (var checkUser = new SqlCommand("SELECT COUNT(1) FROM Users WHERE Id = @id", conn))
                 {
                     checkUser.Parameters.AddWithValue("@id", userId);
@@ -78,7 +78,7 @@ namespace BatterySwapStationManagement
                     }
                 }
 
-                // Ensure referenced battery exists to avoid FK violation
+               
                 using (var checkBattery = new SqlCommand("SELECT COUNT(1) FROM Batteries WHERE Id = @id", conn))
                 {
                     checkBattery.Parameters.AddWithValue("@id", batteryId);
@@ -111,12 +111,12 @@ namespace BatterySwapStationManagement
 
             MessageBox.Show("Bill generated successfully!");
 
-            // Clear input fields
+          
             txtUserId.Clear();
             txtBatteryId.Clear();
             txtAmount.Clear();
 
-            LoadTransactions(); // Refresh table after new entry
+            LoadTransactions(); 
         }
     }
 }
