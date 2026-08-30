@@ -21,11 +21,11 @@ namespace BatterySwapStationManagement
             userRole = role;
             lblRole.Text = "Logged in as: " + role;
 
-            // Role-based access control
+            
             if (role == "Employee")
             {
-                btnInventory.Enabled = false;   // Customers cannot manage inventory
-                btnReports.Enabled = false;     // Customers cannot view reports
+                btnInventory.Enabled = false;   
+                btnReports.Enabled = false;     
             }
         }
 
@@ -57,7 +57,7 @@ namespace BatterySwapStationManagement
         private void btnDriverManagement_Click(object sender, EventArgs e)
         {
             DriverManagementForm driverForm = new DriverManagementForm();
-            driverForm.Show(); // অথবা driverForm.ShowDialog();
+            driverForm.Show(); 
         }
     }
 }
