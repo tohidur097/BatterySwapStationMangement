@@ -42,7 +42,7 @@ namespace BatterySwapStationManagement
             }
         }
 
-        // Add Battery
+   
         private void btnAddBattery_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtStatus.Text) || string.IsNullOrWhiteSpace(txtCharge.Text))
@@ -78,24 +78,23 @@ namespace BatterySwapStationManagement
             }
         }
 
-        // ListView item selection event
+        
         private void listViewInventory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // শুধুমাত্র যখন কোনো আইটেম নতুন করে সিলেক্ট হবে, তখনই আইডি এবং টেক্সটবক্স আপডেট হবে।
-            // Unselect হওয়ার সময় selectedBatteryId নাল (null) করা হবে না!
+            
             if (listViewInventory.SelectedItems.Count > 0)
             {
                 ListViewItem item = listViewInventory.SelectedItems[0];
-                selectedBatteryId = item.SubItems[0].Text; // ID
-                txtStatus.Text = item.SubItems[1].Text;    // Status
-                txtCharge.Text = item.SubItems[2].Text;    // Charge Level
+                selectedBatteryId = item.SubItems[0].Text; 
+                txtStatus.Text = item.SubItems[1].Text;    
+                txtCharge.Text = item.SubItems[2].Text;    
             }
         }
 
-        // Update Battery
+       
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            // ১. আইডি সেভ আছে কিনা সরাসরি চেক
+            
             if (string.IsNullOrEmpty(selectedBatteryId))
             {
                 MessageBox.Show("Please click on a row in the list first!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -136,10 +135,10 @@ namespace BatterySwapStationManagement
             }
         }
 
-        // Remove Battery
+        
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // ১. আইডি সেভ আছে কিনা সরাসরি চেক
+           
             if (string.IsNullOrEmpty(selectedBatteryId))
             {
                 MessageBox.Show("Please click on a row in the list first!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
