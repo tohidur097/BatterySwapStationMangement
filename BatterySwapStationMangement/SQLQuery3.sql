@@ -24,7 +24,6 @@ CREATE TABLE Transactions (
     Amount DECIMAL(10,2),
     Date DATETIME
 );
- 
--- Sample data
+
 INSERT INTO Users (Username, Password, Role, Email) VALUES ('admin', '1234', 'Admin', 'admin@email.com');
 INSERT INTO Batteries (Status, ChargeLevel) VALUES ('Available', 100), ('In Use', 75), ('Maintenance', 0);
